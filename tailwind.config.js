@@ -12,9 +12,9 @@ export default {
                 poppins: "Poppins",
             },
             textColor: {
-                Primary: "#37B100",
-                Secondary: "#61876E",
-                Accent: "#EB6635",
+                Primary: "#0F4C75",
+                Secondary: "#3282B8",
+                Accent: "#363062",
             },
         },
     },

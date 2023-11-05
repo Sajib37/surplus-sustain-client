@@ -28,7 +28,7 @@ const FooTer = () => {
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6 md:w-2/3">
                             <div>
-                                <Footer.Title title="about" />
+                                <Footer.Title className="text-white" title="about" />
                                 <Footer.LinkGroup col>
                                     <Footer.Link href="#">Contact us</Footer.Link>
                                     <Footer.Link href="#">Team</Footer.Link>
@@ -36,7 +36,7 @@ const FooTer = () => {
                                 </Footer.LinkGroup>
                             </div>
                             <div>
-                                <Footer.Title title="Follow us" />
+                                <Footer.Title className="text-white" title="Follow us" />
                                 <Footer.LinkGroup col> 
                                     <Footer.Link href="#">Instagram</Footer.Link>
                                     <Footer.Link href="#">Facebook</Footer.Link>
@@ -44,7 +44,7 @@ const FooTer = () => {
                                 </Footer.LinkGroup>
                             </div>
                             <div>
-                                <Footer.Title title="Legal" />
+                                <Footer.Title className="text-white" title="Legal" />
                                 <Footer.LinkGroup col>
                                     <Footer.Link href="#">
                                         Privacy Policy
@@ -67,11 +67,11 @@ const FooTer = () => {
                             year={2023}
                         />
                         <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-                            <Footer.Icon href="#" icon={BsFacebook} />
-                            <Footer.Icon href="#" icon={BsInstagram} />
-                            <Footer.Icon href="#" icon={BsTwitter} />
-                            <Footer.Icon href="#" icon={BsGithub} />
-                            <Footer.Icon href="#" icon={BsDribbble} />
+                            <Footer.Icon href="#" className="text-white"  icon={BsFacebook} />
+                            <Footer.Icon href="#" className="text-white" icon={BsInstagram} />
+                            <Footer.Icon href="#" className="text-white" icon={BsTwitter} />
+                            <Footer.Icon href="#" className="text-white" icon={BsGithub} />
+                            <Footer.Icon href="#" className="text-white" icon={BsDribbble} />
                         </div>
                     </div>
                 </div>

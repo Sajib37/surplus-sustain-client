@@ -3,16 +3,16 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 const NavBar = () => {
     return (
-        <Navbar fluid rounded className="sticky top-0 left-0">
-            <Link to='/'>
-                <Navbar.Brand  className="md:mx-auto md:mb-2 lg:mx-0 lg:mb-0">
-                    <img src={logo} className="mr-1 h-12 lg:h-14 hidden md:block" alt="Logo" />
-                    <span className="text-Primary text-3xl lg:text-4xl font-lobster">
+        <Navbar fluid rounded className="">
+            <Link to='/' className="md:mx-auto md:mb-2 lg:mx-0 lg:mb-0">
+                <Navbar.Brand  >
+                    <img src={logo} className=" h-12 lg:h-14 " alt="Logo" />
+                    <span className="text-Primary text-xl md:text-3xl  font-lobster">
                         Surplus Sustain
                     </span>
                 </Navbar.Brand>
             </Link>
-            <div className="flex md:order-2 gap-1">
+            <div className="flex md:order-2 gap-2">
                 <Dropdown
                     arrowIcon={false}
                     inline
@@ -38,7 +38,7 @@ const NavBar = () => {
                 </Dropdown>
                 <Navbar.Toggle />
             </div>
-            <Navbar.Collapse className="text-black">
+            <Navbar.Collapse className="text-black pl-4">
                 <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-Primary mb-3 md:mb-0 font-bold underline underline-offset-4" : "mb-2 md:mb-0"}>
                     Home
                 </NavLink>

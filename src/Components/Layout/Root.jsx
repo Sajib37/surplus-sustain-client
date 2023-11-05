@@ -5,11 +5,13 @@ import FooTer from "../Shared/Footer/Footer";
 const Root = () => {
     return (
         <div className="font-poppins">
-            <div className="max-w-screen-xl mx-auto lg:py-1">
-                <NavBar></NavBar>
+            <div className="sticky top-0 left-0 w-full bg-white z-40">
+                <div className="max-w-screen-xl mx-auto  lg:py-1">
+                    <NavBar></NavBar>
+                </div>
             </div>
             <Outlet></Outlet>
-            <div>
+            <div className="">
                <FooTer></FooTer>
             </div>
         </div>
