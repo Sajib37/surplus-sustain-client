@@ -2,8 +2,8 @@ import React from 'react';
 
 const Login = () => {
     return (
-        <div>
-            <h1>This is Login page</h1>
+        <div className='bg-gray-200 h-[100vh] border-2'>
+            
         </div>
     );
 };
