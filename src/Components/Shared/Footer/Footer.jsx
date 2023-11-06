@@ -24,7 +24,7 @@ const FooTer = () => {
                                     className="md:mx-auto mx-0 h-14 md:h-16"
                                 />
                             </Link>
-                            <h1 className="text-Primary text-3xl lg:text-4xl font-lobster"> Surplus Sutain</h1>
+                            <h1 className="text-white text-3xl lg:text-4xl font-lobster"> Surplus Sutain</h1>
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6 md:w-2/3">
                             <div>

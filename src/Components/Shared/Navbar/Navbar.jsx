@@ -4,13 +4,11 @@ import logo from "../../../assets/logo.png";
 const NavBar = () => {
     return (
         <Navbar fluid rounded className="">
-            <Link to='/' className="md:mx-auto md:mb-2 lg:mx-0 lg:mb-0">
-                <Navbar.Brand  >
-                    <img src={logo} className=" h-12 lg:h-14 " alt="Logo" />
+            <Link to='/' className="md:mx-auto flex items-center md:mb-2 lg:mx-0 lg:mb-0">
+                    <img src={logo} className=" h-12 lg:h-14" alt="Logo" />
                     <span className="text-Primary text-xl md:text-3xl  font-lobster">
                         Surplus Sustain
                     </span>
-                </Navbar.Brand>
             </Link>
             <div className="flex md:order-2 gap-2">
                 <Dropdown
