@@ -1,7 +1,43 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
+import { useAuth } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from "react";
+import user1 from "../../../assets/user1.png"
+
+
 const NavBar = () => {
+
+    const { user, logOut } = useAuth();
+    const [photo, setPhoto] = useState(null);
+    const [email,setEmail]=useState(null)
+    const [userName, setUserName] = useState(null);
+
+    useEffect(() => {
+        if (user) {
+            setUserName(user.displayName)
+            setEmail(user.email)
+            if (user.photoURL) {
+                setPhoto(user.photoURL)
+            }
+            else {
+                setPhoto(user1)
+            }
+        }
+    },[])
+
+    const handleLogOut = () => {
+        logOut()
+            .then(result => {
+            toast.success('Logout successful !')
+            })
+            .catch(error => {
+            toast.error('Logout Failed.!')
+            
+        })
+    }
     return (
         <Navbar fluid rounded className="">
             <Link to='/' className="md:mx-auto flex items-center md:mb-2 lg:mx-0 lg:mb-0">
@@ -15,24 +51,31 @@ const NavBar = () => {
                     arrowIcon={false}
                     inline
                     label={
+                        user ?
                         <Avatar
                             alt="User settings"
-                            img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                            img={photo}
                             rounded
-                        />
+                        />:
+                        // <Avatar
+                        //     alt="User settings"
+                        //     img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                        //     rounded
+                        // />
+                            ''
                     }
                 >
                     <Dropdown.Header>
-                        <span className="block text-sm">Bonnie Green</span>
+                        <span className="block text-sm">{ userName}</span>
                         <span className="block truncate text-sm font-medium">
-                            name@flowbite.com
+                            {email}
                         </span>
                     </Dropdown.Header>
                     <Dropdown.Item>Dashboard</Dropdown.Item>
                     <Dropdown.Item>Settings</Dropdown.Item>
                     <Dropdown.Item>Earnings</Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item>Logout</Dropdown.Item>
+                    <Dropdown.Item onClick={handleLogOut}>Logout</Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />
             </div>
@@ -52,11 +95,17 @@ const NavBar = () => {
                 <NavLink to="/addFood" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-Primary mb-3 md:mb-0 font-bold underline underline-offset-4" : "mb-2 md:mb-0"}>
                     Add Food
                 </NavLink>
-                <NavLink to="/login" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-Primary mb-3 md:mb-0 font-bold underline underline-offset-4" : "mb-2 md:mb-0"}>
-                    Login
-                </NavLink>
-                
+                {
+                    user?
+                        <button onClick={handleLogOut} className=" text-Primary w-14" color="gray">Logout</button> :
+                        <NavLink to="/login" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-Primary mb-3 md:mb-0 font-bold underline underline-offset-4" : "mb-2 md:mb-0"}>
+                            Login
+                        </NavLink>
+                }
+                <ToastContainer></ToastContainer>
+                        
             </Navbar.Collapse>
+            
         </Navbar>
     );
 };
