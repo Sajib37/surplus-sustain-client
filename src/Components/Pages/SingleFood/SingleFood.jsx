@@ -1,8 +1,14 @@
-import { Button } from "flowbite-react";
 import { useLoaderData } from "react-router-dom";
+import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
+import { useRef, useState } from 'react';
+import { useAuth } from "../../AuthProvider/AuthProvider";
 
 const SingleFood = () => {
     const food = useLoaderData();
+    const { user } = useAuth();
+    const [openModal, setOpenModal] = useState(false);
+    const emailInputRef = useRef < HTMLInputElement > (null);
+    
     const { _id, name, image, quantity, location, expireDate, notes, donorName, donorEmail, donorImage, status } = food[0];
     return (
         <section className="bg-gray-100 py-8 md:py-14">
@@ -34,7 +40,103 @@ const SingleFood = () => {
                             </div>
                         </div>
                     </div>
-                    <Button className="mt-4 mx-auto">Request</Button>
+
+
+                    {/* Modal start here */}
+                    <Button onClick={() => setOpenModal(true)} className="mt-4 mx-auto">Request</Button>
+                    <Modal show={openModal} size="md" popup onClose={() => setOpenModal(false)} initialFocus={emailInputRef}>
+                        <Modal.Header />
+                        <Modal.Body>
+                            
+                        <form action="" >                    
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Food Name:" />
+                                </div>
+                                <TextInput name='name' id="input-gray" disabled defaultValue={name} type='text' required color="gray"/>
+                            </div>
+
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Food image url:" />
+                                </div>
+                                <TextInput name='image' id="input-gray" type='text' defaultValue={image} disabled required color="gray"/>
+                                </div>
+                                
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Food ID:" />
+                                </div>
+                                <TextInput name='id' id="input-gray" type='text' defaultValue={_id} disabled required color="gray"/>
+                            </div>
+                                
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Donor Email:" />
+                                </div>
+                                <TextInput name='donorEmail' id="input-gray" type='text' defaultValue={donorEmail} disabled required color="gray"/>
+                            </div>
+                                    
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Donor Name:" />
+                                </div>
+                                <TextInput name='donorName' id="input-gray" type='text' defaultValue={donorName} disabled required color="gray"/>
+                            </div>
+                                    
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="User Email:" />
+                                </div>
+                                <TextInput name='userEmail' id="input-gray" type='text' defaultValue={user.email} disabled required color="gray"/>
+                            </div>
+                                
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Request Date:" />
+                                </div>
+                                <TextInput name='RequestDate' id="input-gray" type='text' defaultValue={new Date().toLocaleString()} disabled required color="gray"/>
+                            </div>
+                                    
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Pickup Location:" />
+                                </div>
+                                <TextInput name='location' id="input-gray" type='text' defaultValue={location} disabled required color="gray"/>
+                            </div>
+                                
+                                        
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Expire Date:" />
+                                </div>
+                                <TextInput name='expireDate' id="input-gray" type='text' defaultValue={expireDate} disabled required color="gray"/>
+                            </div>
+                                
+                                        
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Additional Note:" />
+                                </div>
+                                <TextInput name='notes' id="input-gray" type='text' placeholder="Enter a note shortly" required color="gray"/>
+                            </div>
+                                
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label htmlFor="input-gray" color="gray" value="Donation Money:" />
+                                </div>
+                                <TextInput name='donation' id="input-gray" type='text' placeholder="Enter your donation" required color="gray"/>
+                            </div>
+                            
+                            
+
+                            <button name='submit' className='w-full h-full text-white bg-[#0E7490] py-2 mt-3 rounded-lg'>Request</button>
+                        </form>
+                                    
+                        </Modal.Body>
+                    </Modal>
+
+                    {/* Modal end here */}
                 </div>
             </div>
         </section>
