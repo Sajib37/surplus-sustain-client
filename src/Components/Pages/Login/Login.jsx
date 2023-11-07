@@ -30,10 +30,12 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        console.log({email,password})
 
         emailLogin(email, password)
             .then(result => {
                 toast.success('Login SuccessFull')
+                form.reset();
             })
             .catch(error => {
                 toast.error('Login Failed.Please ,Try again')

@@ -26,8 +26,8 @@ const NavBar = () => {
                 setPhoto(user1)
             }
         }
-    },[])
-
+    }, [user])
+    
     const handleLogOut = () => {
         logOut()
             .then(result => {
@@ -66,7 +66,7 @@ const NavBar = () => {
                     }
                 >
                     <Dropdown.Header>
-                        <span className="block text-sm">{ userName}</span>
+                        <span className="block font-bold text-base ">{ userName}</span>
                         <span className="block truncate text-sm font-medium">
                             {email}
                         </span>
