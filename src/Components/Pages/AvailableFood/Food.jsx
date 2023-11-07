@@ -23,13 +23,13 @@ const Food = ({ food }) => {
                     </div>
                 </div>
                 
-                <div className="flex justify-between items-center mt-2">
+                <div className="flex justify-between items-center mt-3">
                     <div className="flex items-center gap-1">
                         <img className="h-8 rounded-full" src={donorImage} alt="" />
                         <h2 className="text-base text-gray-600 font-semibold">{ donorName}</h2>
                     </div>
                     <Link to={`/singleFood/${ _id}`}>
-                        <button className="p-1 hover:bg-gray-200 px-3 border-2">Details</button>
+                        <button className="p-1 rounded hover:bg-gray-200 px-4 border-2">Details</button>
                     </Link>
                         
                     
