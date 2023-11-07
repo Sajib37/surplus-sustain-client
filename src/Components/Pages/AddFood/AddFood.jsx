@@ -1,8 +1,31 @@
+import axios from 'axios';
 import { Label, TextInput,Button } from 'flowbite-react';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import { useAuth } from '../../AuthProvider/AuthProvider';
+import { useEffect, useState } from 'react';
+
 
 
 const AddFood = () => {
+    const user1 = 'https://i.ibb.co/pQ0dgyb/user1.png';
+    const { user } = useAuth();
+    const [donorName, setDonorName] = useState(null);
+    const [donorEmail, setDonorEmail] = useState(null);
+    const [donorImage, setDonorImage] = useState(null);
+
+    useEffect(() => {
+        if (user) {
+            setDonorName(user?.displayName);
+            setDonorImage(user?.photoURL)
+            setDonorEmail(user?.email)
+        }
+        else {
+            setDonorName("N/G");
+            setDonorImage(user1)
+            setDonorEmail("N/G")
+        }
+    },[user])
+
 
     const hanldeAddFood = (event) => {
         event.preventDefault();
@@ -14,13 +37,22 @@ const AddFood = () => {
         const location = form.location.value;
         const notes = form.notes.value;
         const status = form.status.value;
+        
         const newFood = {
-            name,image,quantity,expireDate,location,notes,status
+            name,image,quantity,expireDate,location,notes,status,donorName,donorEmail,donorImage
         }
+        console.log(user)
 
-        console.log(newFood)
+        axios.post('http://localhost:5000/availableFood',newFood)
+            .then(response => {
+                toast.success('New Food Added successfully.!')
+                form.reset();
+            })
+            .catch(error => {
+            console.log(error)
+        })
 
-        form.reset();
+        
 
     }
 
