@@ -7,16 +7,31 @@ import { useState } from "react";
 const AvailableFood = () => {
 
     const availableFood = useLoaderData();
-    const [displayData, setDisplayData]=useState(availableFood)
+    const [displayData, setDisplayData] = useState(availableFood)
+    const [searchText, setSearchText] = useState("");
 
     const handleSort = () => {
-        const sortData=[...availableFood]
+        const sortData=[...displayData]
         sortData.sort((a, b) => {
             const dateA = new Date(a.expireDate);
             const dateB = new Date(b.expireDate);
             return dateA - dateB;
         })
         setDisplayData(sortData)
+    }
+
+    const handleSearch = () => {
+        if (searchText === "") {
+            setDisplayData(availableFood)
+        }
+        else {
+            const filteredData = availableFood.filter(food => {
+                const foodName = food.name.toLowerCase();
+                const search = searchText.toLowerCase();
+                return foodName.includes(search);
+              });
+              setDisplayData(filteredData);
+        }
     }
     
     return (
@@ -38,8 +53,8 @@ const AvailableFood = () => {
                     </div>
 
                     <div className="relative w-2/3 flex justify-end">
-                        <input type="text" name="searchText" placeholder="Search here" className="w-full rounded-lg md:w-3/4 lg:w-3/5 border-2 p-2" id="" />
-                        <button className="absolute z-30 text-xl top-0 w-12 lg:w-16 h-full border-2 right-0 bg-gray-200"><BsSearch className="text-xl mx-auto"></BsSearch></button>
+                        <input onChange={(e) => setSearchText(e.target.value)}  type="text" name="searchText" placeholder="Search here" className="w-full rounded-lg md:w-3/4 lg:w-3/5 border-2 p-2" id="" />
+                        <button onClick={handleSearch} className="absolute z-30 text-xl top-0 w-12 lg:w-16 h-full border-2 right-0 bg-gray-200"><BsSearch className="text-xl mx-auto"></BsSearch></button>
                         
                     </div>
                     

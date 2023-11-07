@@ -1,11 +1,13 @@
 import { Card ,Button} from "flowbite-react";
 import { MdLocationPin } from "react-icons/md";
 import { FcExpired } from "react-icons/fc";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 
 const Food = ({ food }) => {
+    const navigate = useNavigate();
     
-    const{name,image,quantity,location,expireDate,notes,donorName,donorEmail,donorImage,status}=food
+    const{_id,name,image,quantity,location,expireDate,notes,donorName,donorEmail,donorImage,status}=food
     return (
         <Card className="md:max-w-sm mx-auto w-full" renderImage={() => <img className="h-52" src={image}></img>}>
             <div className=" flex flex-col gap-1 text-sm">
@@ -26,7 +28,11 @@ const Food = ({ food }) => {
                         <img className="h-8 rounded-full" src={donorImage} alt="" />
                         <h2 className="text-base text-gray-600 font-semibold">{ donorName}</h2>
                     </div>
-                    <Button color="gray">Details</Button>
+                    <Link to={`/singleFood/${ _id}`}>
+                        <button className="p-1 hover:bg-gray-200 px-3 border-2">Details</button>
+                    </Link>
+                        
+                    
                 </div>
             </div>
         </Card>
