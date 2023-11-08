@@ -71,7 +71,7 @@ const ManageFood = () => {
             {
                 myFood ? 
                     <div>
-                        <section className="max-w-screen-xl mx-auto py-4 bg-white mb-4">
+                        <section className="max-w-screen-xl mx-auto px-2 py-4 bg-white mb-4">
                             {
                                 (myFood.length===0)?
                                 <h1 className="text-xl md:text-3xl text-center text-Primary font-bold">Explore the table below to see your added foods.</h1>
