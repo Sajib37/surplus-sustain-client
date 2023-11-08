@@ -45,7 +45,7 @@ const AddFood = () => {
 
         axios.post('http://localhost:5000/availableFood',newFood)
             .then(response => {
-                toast.success('New Food Added successfully.!')
+                toast.success('Your Food Added successfully.!')
                 form.reset();
             })
             .catch(error => {

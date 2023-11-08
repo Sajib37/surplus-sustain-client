@@ -1,17 +1,69 @@
 import { useLoaderData } from "react-router-dom";
 import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useAuth } from "../../AuthProvider/AuthProvider";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const SingleFood = () => {
     const food = useLoaderData();
+    const [userEmail,setEmail]=useState(null)
+    const [userName,setUserName]=useState(null)
+    const [userPhoto, setUserPhoto] = useState(null)
+    
     const { user } = useAuth();
     const [openModal, setOpenModal] = useState(false);
     const emailInputRef = useRef < HTMLInputElement > (null);
+
+    useEffect(() => {
+        if (user) {
+            setEmail(user.email)
+            setUserName(user.displayName)
+            setUserPhoto(user.photoURL)
+        }
+    }, [user])
     
     const { _id, name, image, quantity, location, expireDate, notes, donorName, donorEmail, donorImage, status } = food[0];
+
+    const handleRequestForm = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const notes1 = form.notes1.value;
+        const requestDate = form.RequestDate.value;
+        const donation = form.donation.value;
+        const requestFood = {
+            foodID: _id,
+            name,
+            image,
+            quantity,
+            location,
+            expireDate,
+            notes,
+            donorName,
+            donorEmail,
+            donorImage,
+            userEmail,
+            userName,
+            userPhoto,
+            notes1,
+            requestDate,
+            donation
+        }
+
+        axios.post('http://localhost:5000/requestFood', requestFood)
+            .then(response => {
+                toast.success("Request success.Wait for the Donor response")
+                })
+            .catch(error => {
+                toast.error("Request Failed")
+            })
+
+        setOpenModal(false)
+    }
+
     return (
         <section className="bg-gray-100 py-8 md:py-14">
+            <ToastContainer></ToastContainer>
             <section className="max-w-screen-xl mx-auto py-4 bg-white mb-4">
                 <h1 className="text-xl md:text-3xl text-center text-Primary font-bold">Details of { name}</h1>
             </section>
@@ -48,7 +100,7 @@ const SingleFood = () => {
                         <Modal.Header />
                         <Modal.Body>
                             
-                        <form action="" >                    
+                        <form action=""  onSubmit={handleRequestForm}>                    
                             <div>
                                 <div className="mb-2 block">
                                     <Label htmlFor="input-gray" color="gray" value="Food Name:" />
@@ -88,7 +140,7 @@ const SingleFood = () => {
                                 <div className="mb-2 block">
                                     <Label htmlFor="input-gray" color="gray" value="User Email:" />
                                 </div>
-                                <TextInput name='userEmail' id="input-gray" type='text' defaultValue={user.email} disabled required color="gray"/>
+                                <TextInput name='userEmail' id="input-gray" type='text' defaultValue={userEmail} disabled required color="gray"/>
                             </div>
                                 
                             <div>
@@ -118,7 +170,7 @@ const SingleFood = () => {
                                 <div className="mb-2 block">
                                     <Label htmlFor="input-gray" color="gray" value="Additional Note:" />
                                 </div>
-                                <TextInput name='notes' id="input-gray" type='text' placeholder="Enter a note shortly" required color="gray"/>
+                                <TextInput name='notes1' id="input-gray" type='text' placeholder="Enter a note shortly" required color="gray"/>
                             </div>
                                 
                             <div>
@@ -130,7 +182,7 @@ const SingleFood = () => {
                             
                             
 
-                            <button name='submit' className='w-full h-full text-white bg-[#0E7490] py-2 mt-3 rounded-lg'>Request</button>
+                            <button  name='submit' className='w-full h-full text-white bg-[#0E7490] py-2 mt-3 rounded-lg'>Request</button>
                         </form>
                                     
                         </Modal.Body>

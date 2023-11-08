@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../../Layout/Root";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
@@ -10,6 +10,9 @@ import ManageFood from "../../Pages/ManageFood/ManageFood";
 import AddFood from "../../Pages/AddFood/AddFood";
 import FoodRequest from "../../Pages/FoodRequest/FoodRequest";
 import SingleFood from "../../Pages/SingleFood/SingleFood";
+import UpdateFood from "../../Pages/ManageFood/UpdateFood";
+
+
 
 const Router = createBrowserRouter([
     {
@@ -28,7 +31,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/manageFoods',
-                element:<ManageFood></ManageFood>
+                element: <ManageFood></ManageFood>
             },
             {
                 path: '/foodRequests',
@@ -50,6 +53,10 @@ const Router = createBrowserRouter([
                 path: "/singleFood/:id",
                 element: <SingleFood></SingleFood>,
                 loader:({params})=>fetch(`http://localhost:5000/singleFood/${params.id}`)
+            },
+            {
+                path: "/updateFood/:id",
+                element:<UpdateFood></UpdateFood>
             }
         ]
     },
