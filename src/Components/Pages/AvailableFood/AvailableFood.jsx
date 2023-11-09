@@ -3,6 +3,7 @@ import { BsSortDownAlt ,BsSearch} from "react-icons/bs";
 import Food from "./Food";
 import { TextInput ,Label} from "flowbite-react";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const AvailableFood = () => {
 
@@ -37,6 +38,9 @@ const AvailableFood = () => {
     return (
 
         <section className="bg-gray-100">
+            <Helmet>
+                <title>Surplus Sustain || Available Food</title>
+            </Helmet>
             <section className="max-w-screen-xl mx-auto py-8 md:py-14 md:px-2">
                 <h1 className="text-3xl md:text-4xl mb-4 text-center text-Primary font-semibold font-lobster">
                         Explore Available Foods

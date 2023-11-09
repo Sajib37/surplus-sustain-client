@@ -2,10 +2,14 @@ import { Link } from 'react-router-dom';
 import error from '../../../assets/error.jpg'
 
 import { Button } from 'flowbite-react';
+import { Helmet } from 'react-helmet';
 
 const ErrorPage = () => {
     return (
         <div className='max-w-screen-xl  mx-auto h-[100vh] flex items-center flex-col md:flex-row px-2'>
+            <Helmet>
+                <title>Surplus Sustain || Error Page</title>
+            </Helmet>
             <div className='md:w-1/2'>
                 <img className='w-full' src={error} alt="" />
             </div>

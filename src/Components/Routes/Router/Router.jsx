@@ -13,8 +13,6 @@ import SingleFood from "../../Pages/SingleFood/SingleFood";
 import UpdateFood from "../../Pages/ManageFood/UpdateFood";
 import ManageSingleFood from "../../Pages/ManageFood/ManageSingleFood";
 
-
-
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -23,49 +21,52 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element:<Home></Home>
+                element: <Home></Home>,
             },
             {
                 path: "availableFoods",
                 element: <AvailableFood></AvailableFood>,
-                loader:()=>fetch('http://localhost:5000/availableFood')
+                loader: () => fetch("http://localhost:5000/availableFood"),
             },
             {
-                path: '/manageFoods',
-                element: <ManageFood></ManageFood>
+                path: "/manageFoods",
+                element: <ManageFood></ManageFood>,
             },
             {
-                path: '/foodRequests',
+                path: "/foodRequests",
                 element: <FoodRequest></FoodRequest>,
             },
             {
-                path: '/addFood',
-                element:<AddFood></AddFood>
+                path: "/addFood",
+                element: <AddFood></AddFood>,
             },
             {
                 path: "/login",
-                element:<Login></Login>
+                element: <Login></Login>,
             },
             {
                 path: "register",
-                element:<Register></Register>
+                element: <Register></Register>,
             },
             {
                 path: "/singleFood/:id",
                 element: <SingleFood></SingleFood>,
-                loader:({params})=>fetch(`http://localhost:5000/singleFood/${params.id}`)
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/singleFood/${params.id}`),
             },
             {
                 path: "/updateFood/:id",
                 element: <UpdateFood></UpdateFood>,
-                loader: ({ params }) => fetch(`http://localhost:5000/singleFood/${params.id}`)
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/singleFood/${params.id}`),
             },
             {
                 path: "/manage/singleFood/:id",
                 element: <ManageSingleFood></ManageSingleFood>,
-                loader:({params})=>fetch(`http://localhost:5000/food/request/${params.id}`)
-            }
-        ]
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/food/request/${params.id}`),
+            },
+        ],
     },
 ]);
 
