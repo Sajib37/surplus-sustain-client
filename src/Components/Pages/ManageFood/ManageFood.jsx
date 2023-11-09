@@ -72,7 +72,7 @@ const ManageFood = () => {
             {
                 myFood ? 
                     <div>
-                        <section className="max-w-screen-xl mx-auto px-2 py-4 bg-white mb-4">
+                        <section className="max-w-screen-xl mx-auto px-2 py-4 bg-white mb-6 md:mb-12">
                             {
                                 (myFood.length===0)?
                                 <h1 className="text-xl md:text-3xl text-center text-Primary font-bold">Explore the table below to see your added foods.</h1>
@@ -81,25 +81,32 @@ const ManageFood = () => {
                         
                         </section>
                         <section className="max-w-screen-xl mx-auto px-1 md:px-2">
-                            <table className="border border-collapse mx-auto">
+                            <table className="border border-collapse  mx-auto">
                                 <thead>
                                     <tr>
-                                        <th className="border text-Primary border-gray-400 p-2 w-1/4">Name</th>
-                                        <th className="border text-Primary border-gray-400 p-2 w-1/4">Manage</th>
-                                        <th className="border text-Primary border-gray-400 p-2 w-1/4">Edit</th>
-                                        <th className="border text-Primary border-gray-400 p-2 w-1/4">Delete</th>
+                                        <th className="border text-xs md:text-lg text-Primary border-gray-400 py-2 md:p-2 w-1/4">Name</th>
+                                        <th className="border text-xs md:text-lg text-Primary border-gray-400 py-2 md:p-2 w-1/4">Status</th>
+                                        <th className="border text-xs md:text-lg text-Primary border-gray-400 py-2 md:p-2 w-1/4">Manage</th>
+                                        <th className="border text-xs md:text-lg text-Primary border-gray-400 py-2 md:p-2 w-1/4">Edit</th>
+                                        <th className="border text-xs md:text-lg text-Primary border-gray-400 py-2 md:p-2 w-1/4">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {myFood.map((food, index) => (
                                         <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-200'}>
-                                            <td className="border border-gray-400 p-2 w-1/4 text-center">{food.name}</td>
-                                            <td   className="border text-Secondary border-gray-400 p-2 w-1/4 "><AiOutlineFileAdd onClick={()=>handleManage(food._id)} className="text-xl mx-auto hover:cursor-pointer"></AiOutlineFileAdd></td>
-                                            <td  className="border border-gray-400 p-2 w-1/4">
-                                                <AiFillEdit onClick={()=>handleUpdate(food._id)} className="text-Primary mx-auto text-xl hover:cursor-pointer" />
+                                            <td className="border text-xs md:text-base border-gray-400 py-2 md:p-2 w-1/4 text-center">{food.name}</td>
+                                            <td className={`border border-gray-400 md:p-2 w-1/4 text-xs py-2 md:text-base text-center ${
+                                                food.status === 'Delivered' ? 'text-red-500' : 'text-green-500'
+                                                }`}>
+                                                {food.status}
                                             </td>
-                                            <td  className="border border-gray-400 p-2 w-1/4">
-                                                <AiFillDelete onClick={()=>handleDelet(food._id)} className="text-orange-600 text-xl mx-auto hover:cursor-pointer" />
+
+                                            <td   className="border text-Secondary border-gray-400 py-2 md:p-2 w-1/4 "><AiOutlineFileAdd onClick={()=>handleManage(food._id)} className="text-xl mx-auto hover:cursor-pointer"></AiOutlineFileAdd></td>
+                                            <td  className="border border-gray-400 py-2 md:p-2 w-1/4">
+                                                <AiFillEdit onClick={()=>handleUpdate(food._id)} className="text-Primary mx-auto text-lg md:text-xl hover:cursor-pointer" />
+                                            </td>
+                                            <td  className="border border-gray-400 py-2 md:p-2 w-1/4">
+                                                <AiFillDelete onClick={()=>handleDelet(food._id)} className="text-orange-600 text-lg md:text-xl mx-auto hover:cursor-pointer" />
                                             </td>
                                         </tr>
                                     ))}
