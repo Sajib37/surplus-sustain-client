@@ -11,6 +11,7 @@ import AddFood from "../../Pages/AddFood/AddFood";
 import FoodRequest from "../../Pages/FoodRequest/FoodRequest";
 import SingleFood from "../../Pages/SingleFood/SingleFood";
 import UpdateFood from "../../Pages/ManageFood/UpdateFood";
+import ManageSingleFood from "../../Pages/ManageFood/ManageSingleFood";
 
 
 
@@ -57,7 +58,12 @@ const Router = createBrowserRouter([
             {
                 path: "/updateFood/:id",
                 element: <UpdateFood></UpdateFood>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food/get/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/singleFood/${params.id}`)
+            },
+            {
+                path: "/manage/singleFood/:id",
+                element: <ManageSingleFood></ManageSingleFood>,
+                loader:({params})=>fetch(`http://localhost:5000/food/request/${params.id}`)
             }
         ]
     },

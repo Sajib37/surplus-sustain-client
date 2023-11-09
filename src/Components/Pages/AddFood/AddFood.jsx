@@ -112,7 +112,7 @@ const AddFood = () => {
                         <div className="mb-2 block">
                             <Label htmlFor="input-gray" color="gray" value="Food Status:" />
                         </div>
-                        <TextInput name='status' id="input-gray" type='text' defaultValue="Available" required color="gray"/>
+                        <TextInput name='status' id="input-gray" type='text' defaultValue="Available" disabled required color="gray"/>
                     </div>
 
 

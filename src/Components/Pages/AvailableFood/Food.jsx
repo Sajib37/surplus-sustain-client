@@ -14,7 +14,11 @@ const Food = ({ food }) => {
                 <h1 className="text-xl text-Primary font-semibold ">{name}</h1>
                 {/* <p>{ notes}</p> */}
                 <p className="text-base  text-gray-600">Quntity: <span className="text-Secondary text-sm">{quantity} perosn can feed</span></p>
+                {/* <p className="text-xs font-semibold">Status: <span className="text-green-500">{ status}</span></p> */}
 
+                <h1 className={`mt-2 text-xs font-semibold ${status === 'Delivered' ? 'text-orange-600' : 'text-green-600'}`}>
+                        <span className={`text-base text-Accent `}>Status:</span> {status}
+                </h1>
                 <div className="flex justify-between items-center mt-2">
                     <p className="flex items-center"> <MdLocationPin className="text-xl text-orange-300"></MdLocationPin>{location}</p>
                     <div className="flex items-center">

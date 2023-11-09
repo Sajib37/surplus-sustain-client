@@ -27,6 +27,7 @@ const ManageFood = () => {
         }
     }, [user]);
 
+
     const handleDelet = (id) => {
         Swal.fire({
             title: "Are you sure ?",
@@ -62,7 +63,7 @@ const ManageFood = () => {
     }
 
     const handleManage = (id) => {
-        console.log(id)
+        navigate(`/manage/singleFood/${id}`)
     }
 
     return (

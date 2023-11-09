@@ -90,7 +90,7 @@ const NavBar = () => {
                     Manage Foods
                 </NavLink>
                 <NavLink to="/foodRequests" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-Primary mb-3 md:mb-0 font-bold underline underline-offset-4" : "mb-2 md:mb-0"}>
-                    Food Request
+                    My Request
                 </NavLink>
                 <NavLink to="/addFood" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-Primary mb-3 md:mb-0 font-bold underline underline-offset-4" : "mb-2 md:mb-0"}>
                     Add Food

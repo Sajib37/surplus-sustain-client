@@ -7,7 +7,7 @@ const UpdateFood = () => {
 
     const food = useLoaderData();
 
-    const { _id,name, image, quantity, expireDate, location, notes, status, donorName, donorEmail, donorImage } = food[0];
+    const { _id,name, image, quantity, expireDate, location, notes, status } = food[0];
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -18,11 +18,12 @@ const UpdateFood = () => {
         const location = form.location.value;
         const notes = form.notes.value;
         const status = form.status.value;
+        const image = form.image.value;
 
         const updatedFood = {
             name,image,quantity,expireDate,location,notes,status
         }
-        console.log(_id)
+        console.log(updatedFood)
         fetch(`http://localhost:5000/food/update/${_id}`, {
             method: "PUT",
             headers: {
@@ -100,7 +101,7 @@ const UpdateFood = () => {
                     </div>
                    
 
-                    <button name='submit' className='w-full h-full text-white bg-[#0E7490] py-2 mt-3 rounded-lg'>Add Food</button>
+                    <button name='submit' className='w-full h-full text-white bg-[#0E7490] py-2 mt-3 rounded-lg'>Update</button>
                 </form>
 
                 <ToastContainer></ToastContainer>

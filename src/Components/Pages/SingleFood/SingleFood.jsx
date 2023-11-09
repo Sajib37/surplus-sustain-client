@@ -33,19 +33,10 @@ const SingleFood = () => {
         const donation = form.donation.value;
         const requestFood = {
             foodID: _id,
-            name,
-            image,
-            quantity,
-            location,
-            expireDate,
-            notes,
-            donorName,
-            donorEmail,
-            donorImage,
             userEmail,
             userName,
             userPhoto,
-            notes1,
+            userNotes: notes1,
             requestDate,
             donation
         }
