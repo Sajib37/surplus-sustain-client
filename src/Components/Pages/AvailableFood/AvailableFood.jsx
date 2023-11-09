@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { BsSortDownAlt ,BsSearch} from "react-icons/bs";
 import Food from "./Food";
-import { TextInput ,Label} from "flowbite-react";
+import { TextInput ,Label, Button} from "flowbite-react";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 
@@ -69,6 +69,8 @@ const AvailableFood = () => {
                         displayData.map((food,idx)=><Food key={idx} food={food}></Food>)
                     }
                 </section>
+                
+                
             </section>
         </section>
     );

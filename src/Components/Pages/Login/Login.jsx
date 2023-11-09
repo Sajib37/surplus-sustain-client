@@ -1,5 +1,5 @@
 import { Label, TextInput,Button } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BsGoogle } from "react-icons/bs";
 import { useAuth } from '../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,11 +14,16 @@ const Login = () => {
     const {googleLogin,emailLogin,user,resetPassword}=useAuth()
     const emailRef = useRef();
 
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const handleGooglLogin = () => {
         googleLogin()
-            .then(result => {
+            .then(async result => {
                 toast.success(`Welcome ${result?.user?.displayName} .Login successful`)
                 // console.log(user)
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 toast.error('Login Failed.!')
@@ -34,9 +39,11 @@ const Login = () => {
         console.log({email,password})
 
         emailLogin(email, password)
-            .then(result => {
+            .then(async result => {
                 toast.success('Login SuccessFull')
                 form.reset();
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 toast.error('Login Failed.Please ,Try again')

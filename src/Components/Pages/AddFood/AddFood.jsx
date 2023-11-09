@@ -50,7 +50,10 @@ const AddFood = () => {
         console.log(user);
 
         axios
-            .post("http://localhost:5000/availableFood", newFood)
+            .post(
+                "https://surplus-sustain-server.vercel.app/availableFood",
+                newFood
+            )
             .then((response) => {
                 toast.success("Your Food Added successfully.!");
                 form.reset();

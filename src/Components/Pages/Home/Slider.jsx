@@ -10,7 +10,7 @@ import slide6 from "../../../assets/sliderImage/slider6.jpg"
 const Slider = () => {
     return (
         <div>
-            <div className="lg:h-[60vh] sm:h-64 xl:h-96 2xl:h-96">
+            <div className="h-56 sm:h-64 xl:h-96 2xl:h-96">
                 <Carousel>
                     <img className="h-full" src={slide1} alt="..." />
                     <img className="h-full" src={slide2} alt="..." />

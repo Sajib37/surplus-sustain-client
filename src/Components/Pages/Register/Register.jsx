@@ -75,7 +75,7 @@ const Register = () => {
     return (
         <div className="bg-gray-200 md:bg-gray-100 py-8 md:py-12 px-2">
             <Helmet>
-                <title>Surplus Sustain || Register</title>
+                <title>Surplus Sustain || Registraion</title>
             </Helmet>
             <section className="max-w-md  mx-auto px-2 md:px-4  md:max-w-lg lg:max-w-lg bg-white rounded-lg py-10 md:py-12">
                 <h1 className="text-2xl md:text-3xl mb-4 text-center text-Primary font-semibold">

@@ -55,7 +55,10 @@ const SingleFood = () => {
         };
 
         axios
-            .post("http://localhost:5000/requestFood", requestFood)
+            .post(
+                "https://surplus-sustain-server.vercel.app/requestFood",
+                requestFood
+            )
             .then((response) => {
                 toast.success("Request success.Wait for the Donor response");
             })

@@ -8,7 +8,9 @@ const SingleRequest = ({ request, handleRequestDelet }) => {
     const [food, setFood] = useState(null);
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/singleFood/${foodID}`)
+            .get(
+                `https://surplus-sustain-server.vercel.app/singleFood/${foodID}`
+            )
             .then((result) => setFood(result.data))
             .catch((error) => console.log(error));
     }, [foodID]);

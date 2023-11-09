@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SingleFetureFood from "./SingleFetureFood";
-import { Spinner } from "flowbite-react";
+import { Button, Spinner } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 
 const FeatureFood = () => {
     const [foods, setFood] = useState(null);
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/availableFood`)
+            .get(`https://surplus-sustain-server.vercel.app/availableFood`)
             .then((data) => {
                 setFood(data.data.sort((a, b) => b.quantity - a.quantity));
             })
@@ -16,7 +17,11 @@ const FeatureFood = () => {
             });
     }, []);
 
-    console.log(foods);
+    const navigate = useNavigate();
+    const changeRoute = () => {
+        navigate('/availableFoods')
+    }
+    
     return (
         <section className="bg-gray-200 border-2 border-teal-600 pb-10 md:pb-12 lg:pb-16">
             <div className="max-w-screen-xl mx-auto my-6 md:my-10 lg:my-12 py-2 px-2 ">
@@ -42,6 +47,8 @@ const FeatureFood = () => {
                     <Spinner aria-label="Center-aligned spinner example" />
                 </div>
             )}
+
+            <Button onClick={changeRoute} color="success" className="mx-auto mt-4 md:mt-6">Show all Food</Button>
         </section>
     );
 };
