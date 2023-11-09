@@ -23,7 +23,7 @@ const FeatureFood = () => {
     }
     
     return (
-        <section className="bg-gray-200 border-2 border-teal-600 pb-10 md:pb-12 lg:pb-16">
+        <section className="bg-gray-200  pb-10 md:pb-12 lg:pb-16">
             <div className="max-w-screen-xl mx-auto my-6 md:my-10 lg:my-12 py-2 px-2 ">
                 <h1 className="text-Secondary font-semibold text-center text-3xl md:text-4xl lg:text-5xl  font-lobster">
                     Abundance of Featured Foods
