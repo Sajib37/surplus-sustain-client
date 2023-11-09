@@ -3,6 +3,7 @@ import Slider from './Slider';
 import FeatureFood from './FeatureFood';
 import { Helmet } from 'react-helmet';
 import Testimonials from './Testimonials/Testimonials';
+import HowitWork from './HowitWork';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Slider></Slider>
             <FeatureFood></FeatureFood>
             <Testimonials></Testimonials>
+            <HowitWork></HowitWork>
         </div>
     );
 };
