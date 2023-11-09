@@ -39,7 +39,7 @@ const NavBar = () => {
         })
     }
     return (
-        <Navbar fluid rounded className="">
+        <Navbar fluid rounded className="bg-white">
             <Link to='/' className="md:mx-auto flex items-center md:mb-2 lg:mx-0 lg:mb-0">
                     <img src={logo} className=" h-12 lg:h-14" alt="Logo" />
                     <span className="text-Primary text-xl md:text-3xl  font-lobster">
