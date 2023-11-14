@@ -16,6 +16,9 @@ export default {
                 Secondary: "#3282B8",
                 Accent: "#363062",
             },
+            colors: {
+                Primary:'#ffffff'
+            }
         },
     },
     plugins: [],

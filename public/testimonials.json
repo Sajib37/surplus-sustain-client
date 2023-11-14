@@ -1,17 +1,52 @@
 [
-    {
-      "name": "Jane Doe",
-      "role": "Local Chef",
-      "quote": "Food Surplus Sustain has not only reduced my kitchen costs but allowed me to create amazing dishes with unique, locally sourced ingredients. It's a game-changer for any chef!"
-    },
-    {
-      "name": "John Smith",
-      "role": "Happy Donor",
-      "quote": "Donating surplus food through this platform is a breeze! I love knowing that my excess is going to those who need it, rather than ending up in a landfill. Keep up the great work!"
-    },
-    {
-      "name": "Emily Green",
-      "role": "Regular Recipient",
-      "quote": "As a struggling student, having access to surplus food has been a lifeline. The variety and quality are impressive, and it's a relief to stretch my budget without compromising on nutrition."
-    }
-  ]
+  {
+    "name": "Jane Doe",
+    "role": "Local Chef",
+    "quote": "Food Surplus Sustain has not only reduced my kitchen costs but allowed me to create amazing dishes with unique, locally sourced ingredients. It's a game-changer for any chef!"
+  },
+  {
+    "name": "John Smith",
+    "role": "Happy Donor",
+    "quote": "Donating surplus food through this platform is a breeze! I love knowing that my excess is going to those who need it, rather than ending up in a landfill. Keep up the great work!"
+  },
+  {
+    "name": "Emily Green",
+    "role": "Regular Recipient",
+    "quote": "As a struggling student, having access to surplus food has been a lifeline. The variety and quality are impressive, and it's a relief to stretch my budget without compromising on nutrition."
+  },
+  {
+    "name": "Michael Johnson",
+    "role": "Community Organizer",
+    "quote": "Food Surplus Sustain has strengthened community bonds by redistributing excess food. It's heartening to see the positive impact on both individuals and the neighborhood."
+  },
+  {
+    "name": "Sarah White",
+    "role": "Grateful Volunteer",
+    "quote": "Volunteering with Food Surplus Sustain is a fulfilling experience. It's incredible to be part of an initiative that addresses food waste and contributes to the well-being of others."
+  },
+  {
+    "name": "David Brown",
+    "role": "Local Business Owner",
+    "quote": "Partnering with Food Surplus Sustain not only reduces waste but also enhances our community engagement. It's a win-win for the environment and our business."
+  },
+  {
+    "name": "Olivia Taylor",
+    "role": "Environmental Advocate",
+    "quote": "I applaud the efforts of Food Surplus Sustain in tackling food waste. It aligns with the principles of sustainability and promotes a more responsible approach to consumption."
+  },
+  {
+    "name": "Daniel Lee",
+    "role": "Supportive Parent",
+    "quote": "Knowing that surplus food supports my child's school nutrition program brings peace of mind. It's a testament to the positive impact this initiative has on the younger generation."
+  },
+  {
+    "name": "Sophia Martinez",
+    "role": "Health-conscious Consumer",
+    "quote": "Accessing surplus food from local sources has been a game-changer for my healthy lifestyle. It's wonderful to have nutritious options that contribute to both personal well-being and reducing food waste."
+  },
+  {
+    "name": "Chris Anderson",
+    "role": "Local Farmer",
+    "quote": "Collaborating with Food Surplus Sustain allows me to share my fresh produce with the community. It's gratifying to see the farm-to-table concept in action, benefitting both farmers and consumers."
+  }
+]

@@ -23,9 +23,9 @@ const FeatureFood = () => {
     }
     
     return (
-        <section className="bg-gray-200  pb-10 md:pb-12 lg:pb-16">
+        <section className="bg-gray-100  pb-10 md:pb-12 lg:pb-16 border">
             <div className="max-w-screen-xl mx-auto my-6 md:my-10 lg:my-12 py-2 px-2 ">
-                <h1 className="text-Secondary font-semibold text-center text-3xl md:text-4xl lg:text-5xl  font-lobster">
+                <h1 className="text-Secondary font-semibold text-center text-3xl md:text-4xl lg:text-5xl  font-serif">
                     Abundance of Featured Foods
                 </h1>
                 <h1 className="text-center font-bold text-xl md:text-2xl lg:text-3xl text-green-400 mt-2">
@@ -34,7 +34,7 @@ const FeatureFood = () => {
                 </h1>
             </div>
             {foods ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 max-w-screen-xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-1 max-w-screen-xl mx-auto">
                     {foods.slice(0, 6).map((food, idx) => (
                         <SingleFetureFood
                             key={idx}
