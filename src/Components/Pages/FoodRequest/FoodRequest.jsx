@@ -12,9 +12,7 @@ const FoodRequest = () => {
     useEffect(() => {
         if (user) {
             axios
-                .get(
-                    `https://surplus-sustain-server.vercel.app/food/request/email/${user.email}`
-                )
+                .get(`http://localhost:5000/food/request/email/${user.email}`)
                 .then((response) => {
                     setMyRequests(response.data); // Assuming the data is in the 'data' property of the response
                 })
@@ -35,12 +33,9 @@ const FoodRequest = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(
-                    `https://surplus-sustain-server.vercel.app/request/delet/${id}`,
-                    {
-                        method: "DELETE",
-                    }
-                )
+                fetch(`http://localhost:5000/request/delet/${id}`, {
+                    method: "DELETE",
+                })
                     .then((res) => res.json())
                     .then((data) => {
                         if (data.deletedCount > 0) {

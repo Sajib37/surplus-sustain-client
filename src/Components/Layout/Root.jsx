@@ -12,7 +12,7 @@ const Root = () => {
     return (
         <div className="font-poppins bg-Primary">
             <div className="sticky top-0 left-0 w-full bg-white z-40">
-                <div className="max-w-screen-xl mx-auto  lg:py-1">
+                <div className="w-full mx-auto">
                     <NavBar></NavBar>
                 </div>
             </div>

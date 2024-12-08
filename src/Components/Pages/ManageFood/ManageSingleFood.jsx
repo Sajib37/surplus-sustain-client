@@ -15,7 +15,7 @@ const ManageSingleFood = () => {
 
     useEffect(() => {
         axios
-            .get(`https://surplus-sustain-server.vercel.app/singleFood/${id}`)
+            .get(`http://localhost:5000/singleFood/${id}`)
             .then((result) => {
                 setFood(result.data);
             })

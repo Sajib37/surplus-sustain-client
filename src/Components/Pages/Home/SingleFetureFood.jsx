@@ -9,7 +9,7 @@ import 'aos/dist/aos.css';
 const SingleFetureFood = ({ food }) => {
     const {_id,name, image, donorName, donorImage,donorEmail, expireDate,location, notes, quantity, status}=food
     return (
-        <Card className="md:max-w-sm mx-auto w-full"  renderImage={() => <img className="h-52" src={image}></img>}>
+        <Card className="md:max-w-sm mx-auto w-full bg-white"  renderImage={() => <img className="h-52" src={image}></img>}>
             <div className=" flex flex-col gap-1 text-sm">
                 <h1 className="text-xl text-Primary font-semibold ">{name}</h1>
                 {/* <p>{ notes}</p> */}
@@ -17,7 +17,7 @@ const SingleFetureFood = ({ food }) => {
                 {/* <p className="text-xs font-semibold">Status: <span className="text-green-500">{ status}</span></p> */}
 
                 <h1 className={`mt-2 text-xs font-semibold ${status === 'Delivered' ? 'text-orange-600' : 'text-green-600'}`}>
-                        <span className={`text-base text-Accent `}>Status:</span> {status}
+                        <span className={`text-base text-black `}>Status:</span> {status}
                 </h1>
                 <div className="flex justify-between items-center mt-2">
                     <p className="flex items-center"> <MdLocationPin className="text-xl text-orange-300"></MdLocationPin>{location}</p>
@@ -33,7 +33,7 @@ const SingleFetureFood = ({ food }) => {
                         <h2 className="text-base text-gray-600 font-semibold">{ donorName}</h2>
                     </div>
                     <Link to={`/singleFood/${ _id}`}>
-                        <button className="p-1 rounded bg-[#22416a] text-white hover:bg-gray-200 hover:text-black px-4 border-2">Details</button>
+                        <button className="p-1 rounded-lg bg-[#FC5185] text-white hover:bg-[#e889a5] hover:text-black px-4 border-2">Details</button>
                     </Link>
                         
                     

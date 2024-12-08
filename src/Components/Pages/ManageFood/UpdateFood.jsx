@@ -31,7 +31,7 @@ const UpdateFood = () => {
             status,
         };
         console.log(updatedFood);
-        fetch(`https://surplus-sustain-server.vercel.app/food/update/${_id}`, {
+        fetch(`http://localhost:5000/food/update/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

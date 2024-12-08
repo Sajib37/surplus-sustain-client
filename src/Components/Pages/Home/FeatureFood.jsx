@@ -8,7 +8,7 @@ const FeatureFood = () => {
     const [foods, setFood] = useState(null);
     useEffect(() => {
         axios
-            .get(`https://surplus-sustain-server.vercel.app/availableFood`)
+            .get(`http://localhost:5000/availableFood`)
             .then((data) => {
                 setFood(data.data.sort((a, b) => b.quantity - a.quantity));
             })
@@ -19,16 +19,16 @@ const FeatureFood = () => {
 
     const navigate = useNavigate();
     const changeRoute = () => {
-        navigate('/availableFoods')
-    }
-    
+        navigate("/availableFoods");
+    };
+
     return (
         <section className="bg-gray-100  pb-10 md:pb-12 lg:pb-16 border">
             <div className="max-w-screen-xl mx-auto my-6 md:my-10 lg:my-12 py-2 px-2 ">
-                <h1 className="text-Secondary font-semibold text-center text-3xl md:text-4xl lg:text-5xl  font-serif">
+                <h1 className="text-Primary font-semibold text-center text-3xl md:text-4xl lg:text-5xl  font-serif">
                     Abundance of Featured Foods
                 </h1>
-                <h1 className="text-center font-bold text-xl md:text-2xl lg:text-3xl text-green-400 mt-2">
+                <h1 className="text-center font-bold text-xl md:text-2xl lg:text-3xl text-Secondary mt-2">
                     Explore a Variety of Culinary Delights Overflowing with
                     Flavor
                 </h1>
@@ -48,7 +48,13 @@ const FeatureFood = () => {
                 </div>
             )}
 
-            <Button onClick={changeRoute} color="success" className="mx-auto mt-4 md:mt-6">Show all Food</Button>
+            <Button
+                onClick={changeRoute}
+                
+                className="mx-auto mt-4 md:mt-6 bg-[#3FC1C9]"
+            >
+                Show all Food
+            </Button>
         </section>
     );
 };

@@ -38,16 +38,13 @@ const RequesterInfo = ({ requester, status1, food }) => {
                 image,
             };
 
-            fetch(
-                `https://surplus-sustain-server.vercel.app/food/update/${foodID}`,
-                {
-                    method: "PUT",
-                    headers: {
-                        "content-type": "application/json",
-                    },
-                    body: JSON.stringify(updatedFood),
-                }
-            )
+            fetch(`http://localhost:5000/food/update/${foodID}`, {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(updatedFood),
+            })
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.acknowledged) {

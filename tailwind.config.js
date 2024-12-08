@@ -12,12 +12,13 @@ export default {
                 poppins: "Poppins",
             },
             textColor: {
-                Primary: "#0F4C75",
-                Secondary: "#3282B8",
-                Accent: "#363062",
+                Primary: "#364F6B",
+                Secondary: "#3FC1C9",
+                Accent: "#FC5185",
             },
             colors: {
-                Primary:'#ffffff'
+                Primary: '#ffffff',
+                background:"#F5F5F5"
             }
         },
     },

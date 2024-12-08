@@ -26,23 +26,36 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/availableFoods",
-                element: <PrivateRouter><AvailableFood></AvailableFood></PrivateRouter>,
-                loader: () =>
-                    fetch(
-                        "https://surplus-sustain-server.vercel.app/availableFood"
-                    ),
+                element: (
+                    <PrivateRouter>
+                        <AvailableFood></AvailableFood>
+                    </PrivateRouter>
+                ),
+                loader: () => fetch("http://localhost:5000/availableFood"),
             },
             {
                 path: "/manageFoods",
-                element: <PrivateRouter><ManageFood></ManageFood></PrivateRouter>,
+                element: (
+                    <PrivateRouter>
+                        <ManageFood></ManageFood>
+                    </PrivateRouter>
+                ),
             },
             {
                 path: "/foodRequests",
-                element: <PrivateRouter><FoodRequest></FoodRequest></PrivateRouter>,
+                element: (
+                    <PrivateRouter>
+                        <FoodRequest></FoodRequest>
+                    </PrivateRouter>
+                ),
             },
             {
                 path: "/addFood",
-                element: <PrivateRouter><AddFood></AddFood></PrivateRouter>,
+                element: (
+                    <PrivateRouter>
+                        <AddFood></AddFood>
+                    </PrivateRouter>
+                ),
             },
             {
                 path: "/login",
@@ -56,25 +69,19 @@ const Router = createBrowserRouter([
                 path: "/singleFood/:id",
                 element: <SingleFood></SingleFood>,
                 loader: ({ params }) =>
-                    fetch(
-                        `https://surplus-sustain-server.vercel.app/singleFood/${params.id}`
-                    ),
+                    fetch(`http://localhost:5000/singleFood/${params.id}`),
             },
             {
                 path: "/updateFood/:id",
                 element: <UpdateFood></UpdateFood>,
                 loader: ({ params }) =>
-                    fetch(
-                        `https://surplus-sustain-server.vercel.app/singleFood/${params.id}`
-                    ),
+                    fetch(`http://localhost:5000/singleFood/${params.id}`),
             },
             {
                 path: "/manage/singleFood/:id",
                 element: <ManageSingleFood></ManageSingleFood>,
                 loader: ({ params }) =>
-                    fetch(
-                        `https://surplus-sustain-server.vercel.app/food/request/${params.id}`
-                    ),
+                    fetch(`http://localhost:5000/food/request/${params.id}`),
             },
         ],
     },

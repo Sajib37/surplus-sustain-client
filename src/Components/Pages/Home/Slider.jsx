@@ -1,13 +1,13 @@
 import { Carousel } from "flowbite-react";
-import slide3 from "../../../assets/sliderImage/slide3.webp"
-import slide4 from "../../../assets/sliderImage/image4.jpg"
-import pic1 from "../../../assets/sliderImage/pic1.jpg"
-import pic2 from "../../../assets/sliderImage/pic2.jpg"
+import slide3 from "../../../assets/sliderImage/sl4.jpg"
+import slide4 from "../../../assets/sliderImage/sl3.jpg"
+import pic1 from "../../../assets/sliderImage/sl2.jpg"
+import pic2 from "../../../assets/sliderImage/sl1.jpeg"
 
 const Slider = () => {
     return (
         <div>
-            <div className=" h-[35vh] md:h-[50vh] lg:h-[70vh] ">
+            <div className=" h-[35vh] md:h-[50vh] lg:h-[80vh] ">
                 <Carousel>
                     <img className="h-full" src={slide3} alt="..." />
                     <img className="h-full" src={pic1} alt="..." />

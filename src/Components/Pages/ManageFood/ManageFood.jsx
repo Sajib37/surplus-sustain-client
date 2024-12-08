@@ -17,9 +17,7 @@ const ManageFood = () => {
         if (user) {
             setEmail(user.email);
             axios
-                .get(
-                    `https://surplus-sustain-server.vercel.app/manageFood/${user.email}`
-                )
+                .get(`http://localhost:5000/manageFood/${user.email}`)
                 .then((response) => {
                     setMyFood(response.data); // Assuming the data is in the 'data' property of the response
                 })
@@ -40,7 +38,7 @@ const ManageFood = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://surplus-sustain-server.vercel.app/food/${id}`, {
+                fetch(`http://localhost:5000/food/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
